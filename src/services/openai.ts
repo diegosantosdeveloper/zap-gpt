@@ -11,7 +11,8 @@ export const getOpenAICompletion = async (input: string): Promise<string> => {
             messages: [
                 {role: "user", content: input}
             ],
-            model: "gpt-3.5-turbo"
+            model: "gpt-3.5-turbo",
+            response_format: { type: "json_object" }
         });
         return completion.choices[0].message?.content as string;
     } catch(error) {
